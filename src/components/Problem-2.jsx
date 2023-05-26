@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 const Problem2 = () => {
   const [modal, setModal] = useState("Modal");
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("https://contact.mediusware.com/api/contacts/?page=1&page_size=1000");
 
   const setALL = (link) => {
     setModal(link);

@@ -23,7 +23,6 @@ export default function Modal({ modal, setModal, url, setUrl }) {
     };
     fetchData();
   }, [url]);
-  console.log(modalData);
   return (
     <div
       className="modal fade"
@@ -45,6 +44,27 @@ export default function Modal({ modal, setModal, url, setUrl }) {
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
+          </div>
+          <div className="modal-footer">
+            <button
+              className="btn btn-primary"
+              onClick={() => setALL("Modal-A")}
+            >
+              All Contacts
+            </button>
+            <button
+              className="btn btn-warning"
+              onClick={() => setALL("Modal-B")}
+            >
+              US Contacts
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
           <div className="modal-body">
             <div>
@@ -68,27 +88,6 @@ export default function Modal({ modal, setModal, url, setUrl }) {
                 </tbody>
               </table>
             </div>
-          </div>
-          <div className="modal-footer">
-            <button
-              className="btn btn-primary"
-              onClick={() => setALL("Modal-A")}
-            >
-              All Contacts
-            </button>
-            <button
-              className="btn btn-warning"
-              onClick={() => setALL("Modal-B")}
-            >
-              US Contacts
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>
