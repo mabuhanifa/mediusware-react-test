@@ -14,7 +14,7 @@ export default function Modal({ modal, setModal, url, setUrl }) {
       );
     }
   };
- 
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(url);
@@ -46,7 +46,29 @@ export default function Modal({ modal, setModal, url, setUrl }) {
               aria-label="Close"
             ></button>
           </div>
-          <div className="modal-body">...</div>
+          <div className="modal-body">
+            <div>
+              <table className="table table-striped ">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Country</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {modalData &&
+                    modalData.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td>{item.phone}</td>
+                        <td>{item.country.name}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
           <div className="modal-footer">
             <button
               className="btn btn-primary"
