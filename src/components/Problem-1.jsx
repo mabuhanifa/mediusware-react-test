@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const Problem1 = () => {
   const [show, setShow] = useState("all");
   const [data, setData] = useState([]);
+  const statusOrder = ["completed", "active"];
 
   const createData = (e) => {
     e.preventDefault();
@@ -93,12 +94,19 @@ const Problem1 = () => {
             </thead>
             <tbody>
               {data &&
-                data.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.name}</td>
-                    <td>{item.status}</td>
-                  </tr>
-                ))}
+                data
+                  .filter((item) => show === "all" || item.status === show)
+                  .sort(
+                    (a, b) =>
+                      statusOrder.indexOf(b.status) -
+                      statusOrder.indexOf(a.status)
+                  )
+                  .map((item, index) => (
+                    <tr key={index}>
+                      <td>{item.name}</td>
+                      <td>{item.status}</td>
+                    </tr>
+                  ))}
             </tbody>
           </table>
         </div>
